@@ -42,24 +42,68 @@ let questions = [
 ];
 
 let actualQuestion = 0;
+let AmountCorrectAnswers = 0;
 
 function init() {
     let questionCardRef = document.getElementById('questionCard');
     let questionCounterRef = document.getElementById('questionCounter');
+    let btnNextQuestionRef = document.getElementById('btnNextQuestion');
     questionCardRef.innerHTML = getQuestionCardTemplate(questions[actualQuestion].question, questions[actualQuestion].answer_1, questions[actualQuestion].answer_2, questions[actualQuestion].answer_3, questions[actualQuestion].answer_4);
     questionCounterRef.innerHTML = getQuestionCounterTemplate(actualQuestion + 1, questions.length);
+    btnNextQuestionRef.disabled = true;
 }
 
 function nextQuestion() {
-    actualQuestion += 1;
-    init();
+    if (actualQuestion < questions.length -1) {
+        actualQuestion += 1;
+        init();
+    } else {
+        renderCongratulationScreen();
+    }
+}
+
+function renderCongratulationScreen() {
+    let questionCardRef = document.getElementById('questionCard');
+    let questionCardImgRef = document.getElementById('questionCardImg');
+    let title = createCongratulationTitle();
+    questionCardRef.innerHTML = getCongratulationScreenTemplate(title);
+    questionCardImgRef.src = "./assets/img/unicorn_mountain.png";
+}
+
+function createCongratulationTitle() {
+    switch (AmountCorrectAnswers) {
+        case 0:
+            return "Einhorn-Interessierter"
+            break;
+        case 1:
+            return "Einhorn-Bekannter"
+            break;
+        case 2:
+            return "Einhorn-Freund"
+            break;
+        case 3:
+            return "Einhorn-Spezialist"
+            break;
+        case 4:
+            return "Einhorn-Experte"
+            break;
+        case 5:
+            return "Einhorn"
+            break;
+
+        default:
+            break;
+    }
 }
 
 function userAnswer(answer) {
     let userAnswerRef = document.getElementById('answer_' + answer);
+    let btnNextQuestionRef = document.getElementById('btnNextQuestion');
     if (answer == questions[actualQuestion].right_answer) {
         userAnswerRef.classList.add('correctAnswer');
+        AmountCorrectAnswers += 1;
     } else {
         userAnswerRef.classList.add('falseAnswer');
     }
+    btnNextQuestionRef.disabled = false;
 }

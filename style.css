@@ -13,10 +13,16 @@ body {
     width: 500px;
 }
 
+.card-img-top {
+    object-fit: cover;
+    height: 300px;
+}
+
 .question-footer {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 5px 20px;
 }
 
 .answer-card:hover {

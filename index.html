@@ -17,14 +17,14 @@
     </nav>
     <div class="container">
         <section class="card quiz-card">
-            <img src="./assets/img/question_background.jpg" class="card-img-top" alt="picture question background">
+            <img id="questionCardImg" src="./assets/img/question_background.jpg" class="card-img-top" alt="picture question background">
             <div id="questionCard" class="card-body">
                 
                 </div>
 
                 <div class="question-footer">
                     <span id="questionCounter"></span>
-                    <button onclick="nextQuestion()" class="btn btn-success">Nächste Frage</button>
+                    <button id="btnNextQuestion" onclick="nextQuestion()" class="btn btn-success" disabled>Nächste Frage</button>
                 </div>
             </div>
         </section>
