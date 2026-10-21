@@ -4,12 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>QuizApp</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <script src="./script.js"></script>
+    <script src="./scripts/templates.js"></script>
 </head>
-<body>
-    <h1>QuizApp</h1>
+<body onload="init()">
+    <nav class="navbar bg-1 fg-2">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">QuizAPP</a>
+        </div>
+    </nav>
+    <div class="container">
+        <section class="card quiz-card">
+            <img src="./assets/img/question_background.jpg" class="card-img-top" alt="picture question background">
+            <div id="questionCard" class="card-body">
+                
+                </div>
 
-    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quidem nihil sequi iusto aspernatur quia cum, distinctio architecto natus ab fugiat deserunt magnam? Numquam ipsam est reprehenderit illo assumenda veniam sequi?</p>
-
-    das hier ist ein <a href="#">Link!</a>
+                <div class="question-footer">
+                    <span id="questionCounter"></span>
+                    <button onclick="nextQuestion()" class="btn btn-success">Nächste Frage</button>
+                </div>
+            </div>
+        </section>
+    </div>
 </body>
 </html>

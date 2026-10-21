@@ -1,0 +1,33 @@
+body {
+    background-color: pink !important;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100dvh;
+}
+
+.quiz-card {
+    width: 500px;
+}
+
+.question-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.answer-card:hover {
+    cursor: pointer;
+    background-color: lightpink;
+}
+
+.correctAnswer {
+    background-color: green !important;
+}
+
+.falseAnswer {
+    background-color: red !important;
+}
