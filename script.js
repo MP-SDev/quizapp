@@ -43,6 +43,8 @@ let questions = [
 
 let actualQuestion = 0;
 let AmountCorrectAnswers = 0;
+let correctAudio = new Audio('./assets/audio/correct-audio');
+let falseAudio = new Audio('./assets/audio/false-audio');
 
 function init() {
     let questionCardRef = document.getElementById('questionCard');
@@ -53,6 +55,7 @@ function init() {
     questionCounterRef.innerHTML = getQuestionCounterTemplate(actualQuestion + 1, questions.length);
     btnNextQuestionRef.disabled = true;
     setCardImg("background");
+    btnNextQuestionText("Nächste Frage");
 }
 
 function nextQuestion() {
@@ -61,6 +64,7 @@ function nextQuestion() {
         init();
     } else {
         renderCongratulationScreen();
+        actualQuestion = -1;
     }
 }
 
@@ -69,6 +73,7 @@ function renderCongratulationScreen() {
     let title = createCongratulationTitle();
     questionCardRef.innerHTML = getCongratulationScreenTemplate(title);
     setCardImg("victory");
+    btnNextQuestionText("Neu Starten");
 }
 
 function createCongratulationTitle() {
@@ -102,9 +107,11 @@ function userAnswer(answer) {
     let btnNextQuestionRef = document.getElementById('btnNextQuestion');
     if (answer == questions[actualQuestion].right_answer) {
         userAnswerRef.classList.add('correctAnswer');
+        correctAudio.play();
         AmountCorrectAnswers += 1;
     } else {
         userAnswerRef.classList.add('falseAnswer');
+        falseAudio.play();
     }
     if (btnNextQuestionRef.disabled === true) {
         btnNextQuestionRef.disabled = false;
@@ -130,4 +137,9 @@ function setCardImg(value) {
         default:
             break;
     }
+}
+
+function btnNextQuestionText(text) {
+    let btnNextQuestionRef = document.getElementById('btnNextQuestion');
+    btnNextQuestionRef.innerHTML = getbtnNextQuestionTextTemplate(text);
 }

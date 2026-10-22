@@ -41,3 +41,9 @@ function getCongratulationScreenTemplate(title) {
         <p>Du bist ein ${title}</p>
     `
 }
+
+function getbtnNextQuestionTextTemplate(text) {
+    return `
+        ${text}
+    `
+}
