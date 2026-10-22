@@ -52,6 +52,7 @@ function init() {
     questionCardRef.innerHTML = getQuestionCardTemplate(questions[actualQuestion].question, questions[actualQuestion].answer_1, questions[actualQuestion].answer_2, questions[actualQuestion].answer_3, questions[actualQuestion].answer_4, percent);
     questionCounterRef.innerHTML = getQuestionCounterTemplate(actualQuestion + 1, questions.length);
     btnNextQuestionRef.disabled = true;
+    setCardImg("background");
 }
 
 function nextQuestion() {
@@ -65,10 +66,9 @@ function nextQuestion() {
 
 function renderCongratulationScreen() {
     let questionCardRef = document.getElementById('questionCard');
-    let questionCardImgRef = document.getElementById('questionCardImg');
     let title = createCongratulationTitle();
     questionCardRef.innerHTML = getCongratulationScreenTemplate(title);
-    questionCardImgRef.src = "./assets/img/unicorn_mountain.png";
+    setCardImg("victory");
 }
 
 function createCongratulationTitle() {
@@ -106,5 +106,28 @@ function userAnswer(answer) {
     } else {
         userAnswerRef.classList.add('falseAnswer');
     }
-    btnNextQuestionRef.disabled = false;
+    if (btnNextQuestionRef.disabled === true) {
+        btnNextQuestionRef.disabled = false;
+    } else {
+        setCardImg("caught");
+    }
+    
+}
+
+function setCardImg(value) {
+    let questionCardImgRef = document.getElementById('questionCardImg');
+    switch (value) {
+        case "background":
+            questionCardImgRef.src = "./assets/img/question_background.jpg";
+            break;
+        case "caught":
+            questionCardImgRef.src = "./assets/img/unicorn_face.jpg";
+            break;
+        case "victory":
+            questionCardImgRef.src = "./assets/img/unicorn_mountain.png";
+            break;
+    
+        default:
+            break;
+    }
 }
