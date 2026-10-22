@@ -48,7 +48,8 @@ function init() {
     let questionCardRef = document.getElementById('questionCard');
     let questionCounterRef = document.getElementById('questionCounter');
     let btnNextQuestionRef = document.getElementById('btnNextQuestion');
-    questionCardRef.innerHTML = getQuestionCardTemplate(questions[actualQuestion].question, questions[actualQuestion].answer_1, questions[actualQuestion].answer_2, questions[actualQuestion].answer_3, questions[actualQuestion].answer_4);
+    let percent = Math.round((actualQuestion / questions.length) * 100);
+    questionCardRef.innerHTML = getQuestionCardTemplate(questions[actualQuestion].question, questions[actualQuestion].answer_1, questions[actualQuestion].answer_2, questions[actualQuestion].answer_3, questions[actualQuestion].answer_4, percent);
     questionCounterRef.innerHTML = getQuestionCounterTemplate(actualQuestion + 1, questions.length);
     btnNextQuestionRef.disabled = true;
 }

@@ -37,3 +37,7 @@ body {
 .falseAnswer {
     background-color: red !important;
 }
+
+.progress {
+      --bs-progress-bar-bg: pink !important;
+}
