@@ -59,13 +59,17 @@ function init() {
 }
 
 function nextQuestion() {
-    if (actualQuestion < questions.length -1) {
+    if (gameIsRunning()) {
         actualQuestion += 1;
         init();
     } else {
         renderCongratulationScreen();
         actualQuestion = -1;
     }
+}
+
+function gameIsRunning() {
+    return actualQuestion < questions.length -1;
 }
 
 function renderCongratulationScreen() {

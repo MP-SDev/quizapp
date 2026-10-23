@@ -38,7 +38,7 @@ function getQuestionCardTemplate(question, answer_1, answer_2, answer_3, answer_
 function getCongratulationScreenTemplate(title) {
     return `
         <h4 class="card-title">Glückwunsch</h4>
-        <p>Du bist ein ${title}</p>
+        <p>Du bist ein <b>${title}</b></p>
     `
 }
 
