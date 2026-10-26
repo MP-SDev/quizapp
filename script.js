@@ -42,6 +42,7 @@ let questions = [
 ];
 
 let actualQuestion = 0;
+let actualAnswerGivenCorrect = false;
 let AmountCorrectAnswers = 0;
 let correctAudio = new Audio('./assets/audio/correct-audio');
 let falseAudio = new Audio('./assets/audio/false-audio');
@@ -65,6 +66,7 @@ function nextQuestion() {
     } else {
         renderCongratulationScreen();
         actualQuestion = -1;
+
     }
 }
 
@@ -78,6 +80,7 @@ function renderCongratulationScreen() {
     questionCardRef.innerHTML = getCongratulationScreenTemplate(title);
     setCardImg("victory");
     btnNextQuestionText("Neu Starten");
+    AmountCorrectAnswers = 0;
 }
 
 function createCongratulationTitle() {
@@ -110,9 +113,14 @@ function userAnswer(answer) {
     let userAnswerRef = document.getElementById('answer_' + answer);
     let btnNextQuestionRef = document.getElementById('btnNextQuestion');
     if (answer == questions[actualQuestion].right_answer) {
-        userAnswerRef.classList.add('correctAnswer');
-        correctAudio.play();
-        AmountCorrectAnswers += 1;
+        if (actualAnswerGivenCorrect === false) {
+            userAnswerRef.classList.add('correctAnswer');
+            correctAudio.play();
+            AmountCorrectAnswers += 1;
+            actualAnswerGivenCorrect = true;
+        } else {
+           correctAudio.play(); 
+        }
     } else {
         userAnswerRef.classList.add('falseAnswer');
         falseAudio.play();
@@ -146,4 +154,5 @@ function setCardImg(value) {
 function btnNextQuestionText(text) {
     let btnNextQuestionRef = document.getElementById('btnNextQuestion');
     btnNextQuestionRef.innerHTML = getbtnNextQuestionTextTemplate(text);
+    actualAnswerGivenCorrect = false;
 }
