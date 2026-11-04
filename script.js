@@ -1,42 +1,42 @@
 let questions = [
     {
         "question" : "Was haben alle Einhörner?",
-        "answer_1" : "Punkte",
-        "answer_2" : "Ein Horn",
-        "answer_3" : "Hände",
-        "answer_4" : "Glitzer Kronen",
+        "answer_1" : "./assets/img/dots.png",
+        "answer_2" : "./assets/img/horn.png",
+        "answer_3" : "./assets/img/hand.png",
+        "answer_4" : "./assets/img/crown.png",
         "right_answer" : 2
     },
     {
         "question": "Was machen Einhörner am Liebsten?",
-        "answer_1" : "Lego bauen",
-        "answer_2" : "Springseil springen",
-        "answer_3" : "Rennen",
-        "answer_4" : "In der Nase bohren",
+        "answer_1" : "./assets/img/build.png",
+        "answer_2" : "./assets/img/jump.png",
+        "answer_3" : "./assets/img/run.png",
+        "answer_4" : "./assets/img/nose.png",
         "right_answer" : 3
     },
     {
         "question" : "Was ist die Lieblingsfarbe der Einhörner?",
-        "answer_1" : "Regenbogen",
-        "answer_2" : "Braun",
-        "answer_3" : "Weiß",
-        "answer_4" : "Orange",
+        "answer_1" : "./assets/img/rainbow.png",
+        "answer_2" : "./assets/img/brown.png",
+        "answer_3" : "./assets/img/white.png",
+        "answer_4" : "./assets/img/orange.png",
         "right_answer" : 1
     },
     {
         "question": "Was können magische Einhörner besonders gut?",
-        "answer_1" : "Graben",
-        "answer_2" : "Kochen",
-        "answer_3" : "Singen",
-        "answer_4" : "Fliegen",
+        "answer_1" : "./assets/img/dig.png",
+        "answer_2" : "./assets/img/cook.png",
+        "answer_3" : "./assets/img/sing.png",
+        "answer_4" : "./assets/img/fly.png",
         "right_answer" : 4
     },
     {
         "question": "Wen besuchen magische Einhörner oft im Traum?",
-        "answer_1" : "Opas",
-        "answer_2" : "Kinder",
-        "answer_3" : "Hunde",
-        "answer_4" : "Polizisten",
+        "answer_1" : "./assets/img/grandpa.png",
+        "answer_2" : "./assets/img/child.png",
+        "answer_3" : "./assets/img/dog.png",
+        "answer_4" : "./assets/img/police.png",
         "right_answer" : 2
     }
 ];

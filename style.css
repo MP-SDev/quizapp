@@ -18,11 +18,23 @@ body {
     height: 400px;
 }
 
+.card-body img {
+    width: 150px !important;
+    height: 150px !important;
+}
+
 .question-footer {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 5px 20px;
+}
+
+.answer-card-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
 }
 
 .answer-card:hover {
